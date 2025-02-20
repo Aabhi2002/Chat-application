@@ -23,12 +23,10 @@
 
 
 
-
-
 const WebSocket = require("ws");
 
-const PORT = process.env.PORT || 8080; // Use Render's assigned port or default to 8080
-const wss = new WebSocket.Server({ port: PORT });
+const PORT = process.env.PORT || 8080; // Render's assigned port or default 8080
+const wss = new WebSocket.Server({ port: PORT, host: "0.0.0.0" });
 
 wss.on("connection", (ws) => {
   console.log("Client connected");
@@ -48,4 +46,4 @@ wss.on("connection", (ws) => {
   ws.on("close", () => console.log("Client disconnected"));
 });
 
-console.log(`WebSocket server running on ws://localhost:${PORT}`);
+console.log(`WebSocket server running on ws://0.0.0.0:${PORT}`);
