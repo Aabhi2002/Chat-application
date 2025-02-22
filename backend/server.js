@@ -57,7 +57,7 @@
 
 const WebSocket = require("ws");
 
-const WS_PORT = process.env.WS_PORT || 8080; // WebSocket ke liye alag port
+const WS_PORT = process.env.WS_PORT || 1337; // WebSocket ke liye alag port
 const wss = new WebSocket.Server({ port: WS_PORT, host: "0.0.0.0" });
 
 wss.on("connection", (ws) => {
